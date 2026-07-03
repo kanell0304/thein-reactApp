@@ -6,6 +6,6 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig(({ mode }) => {
   return {
     plugins: [react(), tailwindcss()],
-    base: mode === 'production' ? '/thein_reactApp/' : '/'
+    base: mode === 'production' ? '/thein-reactApp/' : '/'
   }
 })
