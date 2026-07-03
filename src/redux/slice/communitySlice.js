@@ -1,21 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const loginInfoSlice = createSlice({
-    name: 'loginInfo',
+export const communitySlice = createSlice({
+    name: 'communityList',
     initialState: {
-      isLoggedIn: false,
-      user: {
+      communityList: [{
         id: null,
-        account: ""
-      }
+        title: "",
+        content: "",
+        write: "",
+        viewCount: "",
+        
+      }]
     },
     reducers: {
-      login: (state, action) => {
+      addList: (state, action) => {
         state.isLoggedIn = true;
         state.user.id = action.payload.id;
         state.user.account = action.payload.account;
       },
-      logout: (state) => {
+      deleteList: (state) => {
+        state.isLoggedIn = false;
+        state.user.id = null;
+        state.user.account = "";
+      },
+      editList: (state) => {
         state.isLoggedIn = false;
         state.user.id = null;
         state.user.account = "";

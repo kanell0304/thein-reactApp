@@ -5,24 +5,23 @@ import Footer from './component/Footer'
 import MainPage from './page/MainPage'
 import LoginPage from './page/auth/LoginPage'
 import JoinPage from './page/auth/JoinPage'
+import MyPage from './page/MyPage'
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <Header />
-      <nav>
-        <Link to={"/mainPage"}> MainPage </Link>
-        <Link to={"/loginPage"}> LoginPage </Link>
-        <Link to={"/joinPage"}> JoinPage </Link>
-      </nav>
-      <Routes>
-        <Route path='/mainPage' element={<MainPage />} />
-        <Route path='/loginPage' element={<LoginPage />} />
-        <Route path='/joinPage' element={<JoinPage />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/mainPage' element={<MainPage />} />
+          <Route path='/loginPage' element={<LoginPage />} />
+          <Route path='/joinPage' element={<JoinPage />} />
+          <Route path='/myPage' element={<MyPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </div>
   )
 }
 
