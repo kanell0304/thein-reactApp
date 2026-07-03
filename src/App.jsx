@@ -10,10 +10,12 @@ import PostAddPage from './page/post/PostAddPage'
 import PostDetailPage from './page/post/PostDetailPage'
 import PostEditPage from './page/post/PostEditPage'
 
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
+
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <div className="flex min-h-screen flex-col bg-white">
         <Header />
         <main className="flex-1">
