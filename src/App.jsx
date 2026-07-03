@@ -1,27 +1,35 @@
 import './App.css'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Header from './component/Header'
 import Footer from './component/Footer'
 import MainPage from './page/MainPage'
 import LoginPage from './page/auth/LoginPage'
 import JoinPage from './page/auth/JoinPage'
 import MyPage from './page/MyPage'
+import PostAddPage from './page/post/PostAddPage'
+import PostDetailPage from './page/post/PostDetailPage'
+import PostEditPage from './page/post/PostEditPage'
 
 function App() {
 
   return (
-    <div>
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="flex min-h-screen flex-col bg-white">
         <Header />
-        <Routes>
-          <Route path='/mainPage' element={<MainPage />} />
-          <Route path='/loginPage' element={<LoginPage />} />
-          <Route path='/joinPage' element={<JoinPage />} />
-          <Route path='/myPage' element={<MyPage />} />
-        </Routes>
+        <main className="flex-1">
+          <Routes>
+            <Route path='/mainPage' element={<MainPage />} />
+            <Route path='/loginPage' element={<LoginPage />} />
+            <Route path='/joinPage' element={<JoinPage />} />
+            <Route path='/myPage' element={<MyPage />} />
+            <Route path='/postAddPage' element={<PostAddPage />} />
+            <Route path='/postDetailPage/:id' element={<PostDetailPage />} />
+            <Route path='/postEditPage/:id' element={<PostEditPage />} />
+          </Routes>
+        </main>
         <Footer />
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   )
 }
 

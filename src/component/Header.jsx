@@ -22,21 +22,16 @@ function Header(props) {
     }
 
     return (
-        <div>
-            <div>
-                <buton onClick={handleClickLogo}>Logo</buton>
-            </div>
-            <div>
-                <p>아직 뭘 넣을지 모르겠음</p>
-            </div>
-            <div>
-                {isLoggedIn ? 
-                    <button onClick={handleClickToMyPage}>마이페이지</button> :
-                    <button onClick={handleClickToLoginPage}>로그인</button>
-                }
-            </div>
-            <hr />
-        </div>
+        <header className="sticky top-0 z-10 flex items-center justify-between bg-sky-500 px-6 py-4 shadow-sm">
+            <button onClick={handleClickLogo} className="text-xl font-bold text-white">
+                Logo
+            </button>
+            <p className="hidden text-sm text-sky-100 sm:block">아직 뭘 넣을지 모르겠음</p>
+            {isLoggedIn ?
+                <button onClick={handleClickToMyPage} className="rounded-md bg-white px-4 py-2 text-sm font-medium text-sky-600 hover:bg-sky-50">마이페이지</button> :
+                <button onClick={handleClickToLoginPage} className="rounded-md bg-white px-4 py-2 text-sm font-medium text-sky-600 hover:bg-sky-50">로그인</button>
+            }
+        </header>
     );
 }
 
