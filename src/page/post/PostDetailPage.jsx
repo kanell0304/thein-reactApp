@@ -15,6 +15,9 @@ function PostDetailPage(props) {
     const selectedPost = postList.find(post => post.id === Number(id));
     const title = selectedPost.title;
     const content = selectedPost.content;
+    const writer = selectedPost.writer;
+    const viewCount = selectedPost.viewCount;
+    const date = selectedPost.date;
 
     useEffect(() => {
         dispatch(increaseViewCount(selectedPost))
@@ -36,7 +39,14 @@ function PostDetailPage(props) {
     return (
         <div className="mx-auto max-w-2xl px-4 py-8">
             <div className="rounded-xl border border-sky-100 bg-white p-8 shadow-sm">
-                <h2 className="mb-6 text-2xl font-bold text-sky-600">{title}</h2>
+                <h2 className="mb-2 text-2xl font-bold text-sky-600">{title}</h2>
+                <div className="mb-6 flex items-center justify-between text-sm text-sky-500">
+                    <span>{writer}</span>
+                    <div className="flex items-center gap-3">
+                        <span>조회 {viewCount}</span>
+                        <span>{new Date(date).toLocaleDateString()}</span>
+                    </div>
+                </div>
                 <textarea
                     readOnly
                     value={content}
