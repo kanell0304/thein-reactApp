@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { editPost, deletePost } from '../../redux/slice/postSlice';
+import { editPost, deletePost, increaseViewCount } from '../../redux/slice/postSlice';
 
 function PostDetailPage(props) {
 
@@ -15,6 +15,10 @@ function PostDetailPage(props) {
     const selectedPost = postList.find(post => post.id === Number(id));
     const title = selectedPost.title;
     const content = selectedPost.content;
+
+    useEffect(() => {
+        dispatch(increaseViewCount(selectedPost))
+    }, [])
 
     const handleClickEditPost = (postId) => {
         navigate(`/postEditPage/${postId}`);

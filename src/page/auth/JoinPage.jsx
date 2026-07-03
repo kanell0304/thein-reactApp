@@ -51,6 +51,7 @@ function JoinPage(props) {
         setUserList(newUserList);
         localStorage.setItem("userList", JSON.stringify(newUserList)); // 객체를 문자열로 파싱 후 localstorage에 저장
         alert("회원가입에 성공했습니다!");
+        navigate("/loginPage");
     }
 
     // 로그인 페이지로 이동
